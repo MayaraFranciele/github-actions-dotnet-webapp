@@ -1,0 +1,22 @@
+name: Build My First Workflow
+
+on:
+  push:
+  schedule:
+    - cron: '0 * * * *'  # Executa a cada hora
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Rodar script personalizado
+        run: |
+          echo "Início do script personalizado"
+          echo "Data e Hora Atuais:"
+          date
+          echo "Listando arquivos no repositório:"
+          ls -la
